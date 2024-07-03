@@ -1,0 +1,117 @@
+package com.example;
+
+import com.example.controller.LoginController;
+import com.example.controller.SignUpController;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
+
+public class SecondStage {
+    private Stage stage;
+    private LoginController loginController;
+    private SignUpController signUpController;
+
+    public SecondStage(Stage stage) {
+        this.stage = stage;
+        this.loginController = new LoginController(stage); // Initialize LoginController
+        this.signUpController = new SignUpController(loginController); // Initialize SignUpController with LoginController reference
+    }
+
+    public SecondStage() {
+        //TODO Auto-generated constructor stub
+    }
+
+    public void showSecondStage() {
+        StackPane root = new StackPane();
+
+        Font.loadFont(getClass().getResourceAsStream("/fonts/manrope-extrabold.otf"), 14);
+
+        Image splashImage = new Image(getClass().getResourceAsStream("/secondstage/secondstage.png"));
+        ImageView splashImageView = new ImageView(splashImage);
+
+        Text text1 = new Text("Transform Your ");
+        text1.setStyle("-fx-font-family: 'Manrope ExtraBold'; -fx-font-size: 30px; -fx-fill: #092A93;");
+
+        Text text2 = new Text("Social Media");
+        text2.setStyle("-fx-font-family: 'Manrope ExtraBold'; -fx-font-size: 30px; -fx-fill: #FFCB56;");
+
+        HBox hBox = new HBox(text1, text2);
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(4);
+
+        Text text3 = new Text("Presence with Cutting-Edge");
+        text3.setStyle("-fx-font-family: 'Manrope ExtraBold'; -fx-font-size: 30px; -fx-fill: #092A93;");
+
+        Text text4 = new Text("Strategies");
+        text4.setStyle("-fx-font-family: 'Manrope ExtraBold'; -fx-font-size: 30px; -fx-fill: #092A93;");
+
+        Button button1 = new Button("Login");
+        button1.setStyle("-fx-background-color: #092A93;" +     
+                        " -fx-background-radius: 10;" + 
+                        "-fx-padding: 10 20; " + 
+                        "-fx-text-fill: white;" +
+                        "-fx-font-family: 'Poppins';-fx-font-weight: semibold; -fx-font-size: 20px;" +
+                        "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
+        button1.setPrefWidth(170); 
+        button1.setOnAction(event -> openLogin());
+
+        Button button2 = new Button("Register");
+        button2.setStyle("-fx-background-color: #FFFFFF;" +     
+                        " -fx-background-radius: 10;" + 
+                        "-fx-padding: 10 20; " + 
+                        "-fx-text-fill: black;" +
+                        "-fx-font-family: 'Poppins';-fx-font-weight: semibold; -fx-font-size: 20px;" +
+                        "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
+        button2.setPrefWidth(170); 
+        button2.setOnAction(event -> openRegister());
+
+        HBox hBox1 = new HBox(button1, button2);
+        hBox1.setSpacing(30);
+        hBox1.setAlignment(Pos.CENTER);
+
+        VBox vBox = new VBox(splashImageView, hBox, text3, text4, hBox1);
+        vBox.setAlignment(Pos.TOP_CENTER);
+        vBox.setSpacing(3); 
+        VBox.setMargin(splashImageView, new Insets(50, 0, 0, 0));
+        VBox.setMargin(hBox, new Insets(40, 0, 0, 0));
+        VBox.setMargin(hBox1, new Insets(90, 0, 0, 0));
+
+        root.getChildren().add(vBox);
+
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.setTitle("Second Screen");
+        stage.show();
+    }
+
+    private void openRegister() {
+        Scene signupScene = signUpController.createSignupScene(stage);
+        stage.setScene(signupScene);
+        stage.setTitle("Signup");
+    }
+
+    private void openLogin() {
+        loginController.showLoginScene();
+    }
+
+    public Scene getScene() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getScene'");
+    }
+
+    public void showSecondStage(Stage primaryStage) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'showSecondStage'");
+    }
+}

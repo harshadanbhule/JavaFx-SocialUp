@@ -1,0 +1,46 @@
+ VBox.setMargin(welcomeLabel, new Insets(30, 0, 0, 0));
+        VBox.setMargin(usernameField, new Insets(30, 0, 0, 0));
+        VBox.setMargin(passwordField, new Insets(15, 0, 0, 0));
+        VBox.setMargin(continueWithLabel, new Insets(40, 0, 0, 0));
+
+        Image RegisterImage=new Image("/login/Register.png");
+        ImageView loImageView=new ImageView(RegisterImage);
+
+        Image RegisterImage2 = new Image("/Arrow-Left.png");
+        ImageView loImageView2 = new ImageView(RegisterImage2);
+
+        Button backButton = new Button();
+        backButton.setGraphic(loImageView2);
+        backButton.setOnAction(event -> openSecondStage());
+
+
+        backButton.setStyle("-fx-background-color: transparent; -fx-padding: 0;");
+
+
+        HBox hbox = new HBox(backButton,mainLayout,loImageView);
+        HBox.setMargin(mainLayout, new Insets(0, 0, 0, 200));
+        HBox.setMargin(loImageView, new Insets(0, 0, 0, 200));
+        HBox.setMargin(backButton, new Insets(30, 0, 0, 30));
+
+
+
+
+
+
+
+
+        passwordField.setOnMouseClicked(event -> {
+            passwordField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        passwordField.setOnMouseExited(event -> {
+            passwordField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
+
+        usernameField.setOnMouseClicked(event -> {
+            usernameField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        usernameField.setOnMouseExited(event -> {
+            usernameField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
