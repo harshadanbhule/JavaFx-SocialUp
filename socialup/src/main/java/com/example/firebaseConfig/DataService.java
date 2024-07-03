@@ -29,8 +29,7 @@ public class DataService {
         }
     }
 
-    // Method to initialize Firebase with service account credentials
-    private static void initializeFirebase() throws IOException {
+        private static void initializeFirebase() throws IOException {
         FileInputStream serviceAccount = new FileInputStream("socialup\\src\\main\\resources\\javafx-firebasestore.json");
 
         // Configure Firebase options with the credentials
