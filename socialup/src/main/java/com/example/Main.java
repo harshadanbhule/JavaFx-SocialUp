@@ -8,6 +8,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         SplashScreen splashScreen = new SplashScreen(primaryStage);
         splashScreen.showSplashScreen();
+
     }
 
     public static void main(String[] args) {

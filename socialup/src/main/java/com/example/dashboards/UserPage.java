@@ -2,57 +2,158 @@ package com.example.dashboards;
 
 import com.google.cloud.firestore.DocumentSnapshot;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import com.example.controller.LoginController;
 import com.example.firebaseConfig.DataService;
+import javafx.scene.input.ScrollEvent;
 
 public class UserPage {
-    static String userName; // Static variable to store the username
-    private DataService dataService; // Service to interact with Firestore
-    VBox vb; // VBox to hold the user scene components
+    static String userName;
+    private DataService dataService;
+    VBox vb;
+    private Stage stage; // You might already have a stage reference, or pass it from constructor
 
-    // Constructor to initialize the UserPage with the DataService instance
+    public UserPage(DataService dataService, Stage stage) {
+        this.dataService = dataService;
+        this.stage = stage;
+    }
+
     public UserPage(DataService dataService) {
         this.dataService = dataService;
     }
 
-    // Method to create the user scene
     public VBox createUserScene(Runnable logoutHandler) {
-        Button logoutButton = new Button("Logout"); // Button to trigger logout action
-        Label dataLabel = new Label(); // Label to display the username
 
-        try {
-            String key = LoginController.key; // Get the username key from LoginController
-            System.out.println("Value of key: " + key);
-            DocumentSnapshot dataObject = dataService.getData("users", key);
-            userName = dataObject.getString("username"); // Fetch the username from the dataObject
+        Font.loadFont(getClass().getResourceAsStream("/fonts/POPPINS-SEMIBOLD.TTF"), 14);
+        Font.loadFont(getClass().getResourceAsStream("/fonts/manrope-extrabold.otf"), 14);
 
-            System.out.println("username fetched: " + userName);
-            dataLabel.setText("Welcome, " + userName); // Set the username in the label
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+        Label text = new Label("SocialUP");
+        text.setTextFill(Color.web("#2A4ECA"));
+        text.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #2A4ECA;");
 
-            // Set action for the logout button
-            logoutButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    logoutHandler.run(); // Run the logout handler
-                }
-            });
+        Label homLabel = new Label("Home");
+        homLabel.setTextFill(Color.web("#092A93"));
+        homLabel.setFont(Font.font(16));
+        Button homeButton = new Button();
+        homeButton.setGraphic(homLabel);
+        homeButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
 
-            Text message = new Text("Welcome " + dataLabel.getText()); // Text to display welcome message
-            message.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 60"); // Style the message text
-
-            vb = new VBox(350, message, logoutButton);
-            vb.setStyle("-fx-background-color: DARKGREY"); // Set background color for the VBox
+        Label aboutLabel = new Label("About Us");
+        aboutLabel.setTextFill(Color.web("#092A93"));
+        aboutLabel.setFont(Font.font(16));
+        Button aboutButton = new Button();
+        aboutButton.setGraphic(aboutLabel);
+        aboutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
         
-            return vb; // Return the VBox to be used in the scene
+        
+
+        Label serviceLabel = new Label("Our Service");
+        serviceLabel.setTextFill(Color.web("#092A93"));
+        serviceLabel.setFont(Font.font(16));
+        Button serviceButton = new Button();
+        serviceButton.setGraphic(serviceLabel);
+        serviceButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        Label newsLabel = new Label("News");
+        newsLabel.setTextFill(Color.web("#092A93"));
+        newsLabel.setFont(Font.font(16));
+        Button newsButton = new Button();
+        newsButton.setGraphic(newsLabel);
+        newsButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        Label contactLabel = new Label("Contact us");
+        contactLabel.setTextFill(Color.web("#092A93"));
+        contactLabel.setFont(Font.font(16));
+        Button contactButton = new Button();
+        contactButton.setGraphic(contactLabel);
+        contactButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        Image cartImage = new Image(getClass().getResource("/Home/cart.png").toExternalForm());
+        ImageView cartImageView = new ImageView(cartImage);
+        Button cartButton = new Button();
+        cartButton.setGraphic(cartImageView);
+        cartButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        Image profileImage = new Image(getClass().getResource("/Home/profile.png").toExternalForm());
+        ImageView profileImageView = new ImageView(profileImage);
+        Button profileButton = new Button();
+        profileButton.setGraphic(profileImageView);
+        profileButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        Image logoutImage = new Image(getClass().getResource("/Home/logout.png").toExternalForm());
+        ImageView logoutImageView = new ImageView(logoutImage);
+        Button logoutButton = new Button();
+        logoutButton.setGraphic(logoutImageView);
+        logoutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
+
+        HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton, cartButton,profileButton,logoutButton);
+        hbox1.setLayoutX(0);
+        hbox1.setLayoutY(0);
+        HBox.setMargin(text, new Insets(10,0,0,50));
+        HBox.setMargin(homeButton, new Insets(20,0,0,670));
+        HBox.setMargin(aboutButton, new Insets(20,0,0,50));
+        HBox.setMargin(serviceButton, new Insets(20,0,0,50));
+        HBox.setMargin(newsButton, new Insets(20,0,0,50));
+        HBox.setMargin(contactButton, new Insets(20,0,0,50));
+        HBox.setMargin(cartButton, new Insets(10,0,0,50));
+        HBox.setMargin(profileButton, new Insets(10,0,0,50));
+        HBox.setMargin(logoutButton, new Insets(15,0,0,50));
+
+        Button button = new Button("Our Services");
+        button.setFont(Font.font("Poppins", FontWeight.BOLD, 24));
+        button.setTextFill(Color.WHITE);
+        button.setStyle("-fx-background-color: #092A93; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+        button.setPrefSize(296.63, 79.55);
+
+        Image image1 = new Image(getClass().getResource("/Home/Group 14582613-1.png").toExternalForm());
+        ImageView imageView1 = new ImageView(image1);
+        imageView1.setFitWidth(1920);
+        imageView1.setFitHeight(1080);
+        imageView1.setPreserveRatio(true);
+
+        Image image2 = new Image(getClass().getResource("/Home/Home1.png").toExternalForm());
+        ImageView imageView2 = new ImageView(image2);
+        imageView2.setFitWidth(1920);
+        imageView2.setFitHeight(1080);
+        imageView2.setPreserveRatio(true);
+
+        StackPane stackPane = new StackPane(imageView2, hbox1,button);
+        StackPane.setMargin(button, new Insets(600,1230,0,0));
+
+        vb = new VBox(stackPane, imageView1);
+        vb.setStyle("-fx-background-color: DARKGREY");
+
+        vb.setOnScroll(event -> handleScroll(event));
+
+        return vb;
     }
+
+    private void handleScroll(ScrollEvent event) {
+        double deltaY = event.getDeltaY();
+        double newTranslateY = vb.getTranslateY() + deltaY;
+        double contentHeight = vb.getBoundsInParent().getHeight();
+
+        if (newTranslateY > 0) {
+            newTranslateY = 0;
+        } else if (newTranslateY < -(contentHeight - vb.getHeight())) {
+            newTranslateY = -(contentHeight - vb.getHeight());
+        }
+
+        vb.setTranslateY(newTranslateY);
+    }
+
+   
 }
