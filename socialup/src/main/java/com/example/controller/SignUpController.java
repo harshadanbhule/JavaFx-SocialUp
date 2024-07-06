@@ -29,8 +29,8 @@ public class SignUpController {
     private LoginController loginController; // Reference to LoginController for navigation
 
     // Constructor to initialize the SignupController with the LoginController reference
-    public SignUpController(LoginController loginController) {
-        this.loginController = loginController;
+    public SignUpController(LoginController loginController2) {
+        this.loginController = loginController2;
     }
 
     // Method to create the signup scene

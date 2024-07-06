@@ -1,0 +1,72 @@
+package com.example.dashboards;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+
+import com.example.controller.LoginController;
+
+public class UserPage {
+
+    private Stage primaryStage; // The primary stage for displaying scenes
+    private Scene userScene; // Scene for the user dashboard
+
+    // Constructor to initialize the UserPage with the primary stage
+    public UserPage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        initUserScene(); // Initialize the user scene
+    }
+
+    // Method to initialize the user scene
+    private void initUserScene() {
+        Label welcomeLabel = new Label("Welcome, " + LoginController.key + "!");
+        welcomeLabel.setFont(Font.font("Poppins", FontWeight.BOLD, 24));
+        welcomeLabel.setTextFill(Color.web("#092A93"));
+
+        Button logoutButton = new Button("Logout");
+        logoutButton.setFont(Font.font("Poppins", FontWeight.BOLD, 16));
+        logoutButton.setTextFill(Color.WHITE);
+        logoutButton.setStyle("-fx-background-color: #092A93; -fx-background-radius: 10;");
+        logoutButton.setOnAction(event -> handleLogout());
+
+        Button nextPageButton = new Button("Next Page");
+        nextPageButton.setFont(Font.font("Poppins", FontWeight.BOLD, 16));
+        nextPageButton.setTextFill(Color.WHITE);
+        nextPageButton.setStyle("-fx-background-color: #FFCB56; -fx-background-radius: 10;");
+        nextPageButton.setOnAction(event -> openNextPage());
+
+        VBox mainLayout = new VBox(20);
+        mainLayout.setStyle("-fx-padding: 50;");
+        mainLayout.getChildren().addAll(welcomeLabel, logoutButton, nextPageButton);
+        mainLayout.setAlignment(Pos.CENTER);
+
+        userScene = new Scene(mainLayout, 1920, 1080);
+    }
+
+    // Method to get the user scene
+    public Scene getUserScene() {
+        return userScene;
+    }
+
+    // Method to handle logout action
+    private void handleLogout() {
+        LoginController.key = null; // Clear the logged-in username
+        primaryStage.setScene(LoginController.getLoginScene()); // Show the login scene
+        primaryStage.setTitle("Login");
+    }
+
+    // Method to open the next page or stage
+    private void openNextPage() {
+        NextPage nextPage = new NextPage(primaryStage);
+        Scene nextScene = nextPage.createScene();
+        primaryStage.setScene(nextScene);
+        primaryStage.setTitle("Next Page");
+    }
+}

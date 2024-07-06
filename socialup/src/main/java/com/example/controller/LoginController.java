@@ -21,14 +21,14 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.ExecutionException;
 
-import com.example.SecondStage;
 import com.example.dashboards.UserPage;
 import com.example.firebaseConfig.DataService;
+import com.example.SecondStage;
 
 public class LoginController {
 
     private Stage primaryStage; // The primary stage for displaying scenes
-    private Scene loginScene; // Scene for the login page
+    private static Scene loginScene; // Scene for the login page
     private Scene userScene; // Scene for the user dashboard
     private DataService dataService; // Service to interact with Firestore
     public static String key; // Static key to store the logged-in username
@@ -166,21 +166,24 @@ public class LoginController {
         VBox.setMargin(passField, new Insets(15, 0, 0, 0));
         VBox.setMargin(continueWithLabel, new Insets(40, 0, 0, 0));
 
-        Image loginImage=new Image("/login/login.png");
-        ImageView loImageView=new ImageView(loginImage);
+        Image loginImage = new Image("/login/login.png");
+        ImageView loImageView = new ImageView(loginImage);
 
         Image loginImage2 = new Image("/Arrow-Left.png");
         ImageView loImageView2 = new ImageView(loginImage2);
 
         Button backButton = new Button();
         backButton.setGraphic(loImageView2);
-        backButton.setOnAction(event -> openSecondStage());
+        backButton.setOnAction(event -> {
+            openSecondStage();
+        });
+        
 
 
         backButton.setStyle("-fx-background-color: transparent; -fx-padding: 0;");
 
 
-        HBox hbox = new HBox(backButton,mainLayout,loImageView);
+        HBox hbox = new HBox(backButton, mainLayout, loImageView);
         HBox.setMargin(mainLayout, new Insets(0, 0, 0, 200));
         HBox.setMargin(loImageView, new Insets(0, 0, 0, 200));
         HBox.setMargin(backButton, new Insets(30, 0, 0, 30));
@@ -189,14 +192,13 @@ public class LoginController {
         loginScene = new Scene(hbox, 1920, 1080);
     }
 
-    // Method to initialize the user scene
-    private void initUserScene() {
-        UserPage userPage = new UserPage(dataService); // Create UserPage instance
-        userScene = new Scene(userPage.createUserScene(this::handleLogout), 1920, 1080); // Create user scene
+    private void openSecondStage() {
+        SecondStage secondStage = new SecondStage(primaryStage);
+        secondStage.showSecondStage(); // Method to show signup scene in SecondStage
     }
-
+    
     // Method to get the login scene
-    public Scene getLoginScene() {
+    public static Scene getLoginScene() {
         return loginScene;
     }
 
@@ -212,47 +214,41 @@ public class LoginController {
         try {
             // Authenticate user
             if (dataService.authenticateUser(username, password)) {
-                key = username; // Store the username in the static key
-                initUserScene(); // Initialize user scene
-                primaryStage.setScene(userScene); // Show user scene
-                primaryStage.setTitle("User Dashboard");
+                // If authentication is successful, show user dashboard
+                key = username;
+                showUserScene();
             } else {
-                showAlert("Invalid credentials", "The email or password you entered is incorrect.");
-                key = null;
+                // If authentication fails, show error message
+                showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
             }
-        } catch (ExecutionException | InterruptedException ex) {
-            ex.printStackTrace();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Login Error", "Error while logging in. Please try again later.");
         }
     }
 
-    // Method to show the signup scene
-    private void showSignupScene() {
-        SignUpController signupController = new SignUpController(this); // Create SignupController instance
-        Scene signupScene = signupController.createSignupScene(primaryStage); // Create signup scene
-        primaryStage.setScene(signupScene);
-        primaryStage.setTitle("Signup");
+    // Method to show user dashboard
+    private void showUserScene() {
+        UserPage userPage = new UserPage(primaryStage);
+        userScene = userPage.getUserScene();
+        primaryStage.setScene(userScene);
+        primaryStage.setTitle("User Dashboard");
         primaryStage.show();
     }
 
-    // Method to handle logout action
-    private void handleLogout() {
-        primaryStage.setScene(loginScene); // Show login scene
-        primaryStage.setTitle("Login");
+    // Method to show signup scene
+    private void showSignupScene() {
+        SecondStage secondStage = new SecondStage(primaryStage);
+        secondStage.showSignup(); // Call method to show signup scene
     }
+    
 
-    // Method to open the second stage or navigate to it
-    // Method to open the second stage or navigate to it
-private void openSecondStage() {
-    SecondStage secondStage = new SecondStage(primaryStage); // Pass primaryStage to SecondStage constructor
-    secondStage.showSecondStage(); // Call the method to show the SecondStage
-}
-
-private void showAlert(String title, String message) {
-    Alert alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle(title);
-    alert.setHeaderText(null);
-    alert.setContentText(message);
-    alert.showAndWait();
-}
-
+    // Method to show alert dialog
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
+    }
 }

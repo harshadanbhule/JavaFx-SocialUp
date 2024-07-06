@@ -1,5 +1,6 @@
 package com.example;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class SplashScreen {
     private Stage stage;
@@ -16,12 +18,13 @@ public class SplashScreen {
     }
 
     public void showSplashScreen() {
-        Group root =new Group();
+        Group root = new Group();
 
         Image splashImage = new Image(getClass().getResourceAsStream("/Logo.png"));
         ImageView splashImageView = new ImageView(splashImage);
         splashImageView.setLayoutX(855.68);
         splashImageView.setLayoutY(387.68);
+        splashImageView.setOpacity(0); // Initially set to transparent
 
         Image Image1 = new Image(getClass().getResourceAsStream("/Rock.png"));
         ImageView vImage1 = new ImageView(Image1);
@@ -47,23 +50,34 @@ public class SplashScreen {
         text.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 24px;-fx-fill: #2A4ECA;");
         text.setLayoutX(930);
         text.setLayoutY(670);
+        text.setOpacity(0); 
 
-        root.getChildren().addAll(splashImageView,vImage1,vImage2,vImage3,vImage4,text);
+        root.getChildren().addAll(splashImageView, vImage1, vImage2, vImage3, vImage4, text);
 
         Scene scene = new Scene(root, 1920, 1080);
         stage.setScene(scene);
         stage.setTitle("SocialUp");
         stage.show();
 
-        
+       
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(4), splashImageView);
+        fadeIn.setFromValue(0); 
+        fadeIn.setToValue(1);
+        fadeIn.play();
+
+       
+        FadeTransition textFadeIn = new FadeTransition(Duration.seconds(4), text);
+        textFadeIn.setFromValue(0); 
+        textFadeIn.setToValue(1); 
+        textFadeIn.play();
+
         new Thread(() -> {
             try {
-                Thread.sleep(6000); 
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             Platform.runLater(() -> {
-                
                 MainStage mainStage = new MainStage(stage);
                 mainStage.showMainStage();
             });

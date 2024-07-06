@@ -7,11 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class About {
+public class Service {
 
     private Stage stage; // Stage for the next page
 
-    public About(Stage stage) {
+    public Service(Stage stage) {
         this.stage = stage;
     }
 
@@ -20,7 +20,7 @@ public class About {
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(50));
 
-        Button backButton = new Button("Back to Home");
+        Button backButton = new Button("Back to Home...");
         backButton.setOnAction(event -> backToUserPage());
 
         layout.getChildren().addAll(backButton);
@@ -35,3 +35,4 @@ public class About {
         stage.setTitle("User Dashboard");
     }
 }
+

@@ -78,4 +78,14 @@ public class DataService {
         }
         return false;
     }
+
+	public boolean createUser(String username, String password) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'createUser'");
+	}
+
+    public String signIn(String email, String password) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'signIn'");
+    }
 }

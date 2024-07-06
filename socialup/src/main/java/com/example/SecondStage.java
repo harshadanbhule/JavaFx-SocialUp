@@ -28,10 +28,6 @@ public class SecondStage {
         this.signUpController = new SignUpController(loginController); // Initialize SignUpController with LoginController reference
     }
 
-    public SecondStage() {
-        //TODO Auto-generated constructor stub
-    }
-
     public void showSecondStage() {
         StackPane root = new StackPane();
 
@@ -64,7 +60,7 @@ public class SecondStage {
                         "-fx-font-family: 'Poppins';-fx-font-weight: semibold; -fx-font-size: 20px;" +
                         "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
         button1.setPrefWidth(170); 
-        button1.setOnAction(event -> openLogin());
+        button1.setOnAction(event -> openLogin()); // Fixed lambda expression
 
         Button button2 = new Button("Register");
         button2.setStyle("-fx-background-color: #FFFFFF;" +     
@@ -106,12 +102,20 @@ public class SecondStage {
     }
 
     public Scene getScene() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getScene'");
+        return stage.getScene();
     }
 
     public void showSecondStage(Stage primaryStage) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showSecondStage'");
+        showSecondStage();
+    }
+
+    public void show() {
+        showSecondStage();
+    }
+
+    public void showSignup() {
+        Scene signupScene = signUpController.createSignupScene(stage);
+        stage.setScene(signupScene);
+        stage.setTitle("Signup");
     }
 }

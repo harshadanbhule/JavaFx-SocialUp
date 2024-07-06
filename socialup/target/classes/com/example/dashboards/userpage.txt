@@ -1,37 +1,43 @@
 package com.example.dashboards;
 
+import com.google.cloud.firestore.DocumentSnapshot;
+
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import com.example.controller.LoginController;
+import com.example.firebaseConfig.DataService;
+import javafx.scene.input.ScrollEvent;
 
 public class UserPage {
-    private VBox vb;
-    private Stage primaryStage; // The primary stage for displaying scenes
-    private Scene userScene; // Scene for the user dashboard
+    static String userName;
+    private DataService dataService;
+    VBox vb;
+    private Stage stage; 
 
-    // Constructor to initialize the UserPage with the primary stage
-    public UserPage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        initUserScene(); // Initialize the user scene
+    public UserPage(DataService dataService, Stage stage) {
+        this.dataService = dataService;
+        this.stage = stage;
     }
 
-    // Method to initialize the user scene
-    void initUserScene() {
-         Font.loadFont(getClass().getResourceAsStream("/fonts/POPPINS-SEMIBOLD.TTF"), 14);
+    public UserPage(DataService dataService) {
+        this.dataService = dataService;
+    }
+
+    public VBox createUserScene(Runnable logoutHandler) {
+
+        Font.loadFont(getClass().getResourceAsStream("/fonts/POPPINS-SEMIBOLD.TTF"), 14);
         Font.loadFont(getClass().getResourceAsStream("/fonts/manrope-extrabold.otf"), 14);
 
         Label text = new Label("SocialUP");
@@ -51,7 +57,7 @@ public class UserPage {
         Button aboutButton = new Button();
         aboutButton.setGraphic(aboutLabel);
         aboutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
-        aboutButton.setOnAction(event -> openNextPage());
+        
         
 
         Label serviceLabel = new Label("Our Service");
@@ -60,7 +66,6 @@ public class UserPage {
         Button serviceButton = new Button();
         serviceButton.setGraphic(serviceLabel);
         serviceButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
-        serviceButton.setOnAction(event -> openService());
 
         Label newsLabel = new Label("News");
         newsLabel.setTextFill(Color.web("#092A93"));
@@ -87,14 +92,12 @@ public class UserPage {
         Button profileButton = new Button();
         profileButton.setGraphic(profileImageView);
         profileButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
-        profileButton.setOnAction(event -> openProfile());
 
         Image logoutImage = new Image(getClass().getResource("/Home/logout.png").toExternalForm());
         ImageView logoutImageView = new ImageView(logoutImage);
         Button logoutButton = new Button();
         logoutButton.setGraphic(logoutImageView);
         logoutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
-        logoutButton.setOnAction(event -> handleLogout());
 
         HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton, cartButton,profileButton,logoutButton);
         hbox1.setLayoutX(0);
@@ -114,7 +117,6 @@ public class UserPage {
         button.setTextFill(Color.WHITE);
         button.setStyle("-fx-background-color: #092A93; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
         button.setPrefSize(296.63, 79.55);
-        button.setOnAction(event -> openService());
 
         Image image1 = new Image(getClass().getResource("/Home/Group 14582613-1.png").toExternalForm());
         ImageView imageView1 = new ImageView(image1);
@@ -135,44 +137,11 @@ public class UserPage {
         vb.setStyle("-fx-background-color: DARKGREY");
 
         vb.setOnScroll(event -> handleScroll(event));
-        userScene = new Scene(vb, 1920, 1080);
+
+        return vb;
     }
 
-    // Method to get the user scene
-    public Scene getUserScene() {
-        return userScene;
-    }
-
-    // Method to handle logout action
-    private void handleLogout() {
-        LoginController.key = null; // Clear the logged-in username
-        primaryStage.setScene(LoginController.getLoginScene()); // Show the login scene
-        primaryStage.setTitle("Login");
-    }
-
-    // Method to open the next page or stage
-    private void openNextPage() {
-        About nextPage = new About(primaryStage);
-        Scene nextScene = nextPage.createScene();
-        primaryStage.setScene(nextScene);
-        primaryStage.setTitle("Next Page");
-    }
-
-    private void openService() {
-        Service nextPage = new Service(primaryStage);
-        Scene nextScene = nextPage.createScene();
-        primaryStage.setScene(nextScene);
-        primaryStage.setTitle("Service");
-    }
-
-    private void openProfile() {
-        Profile nextPage = new Profile(primaryStage);
-        Scene nextScene = nextPage.createScene();
-        primaryStage.setScene(nextScene);
-        primaryStage.setTitle("Profile");
-    }
-
-     private void handleScroll(ScrollEvent event) {
+    private void handleScroll(ScrollEvent event) {
         double deltaY = event.getDeltaY();
         double newTranslateY = vb.getTranslateY() + deltaY;
         double contentHeight = vb.getBoundsInParent().getHeight();
@@ -185,4 +154,6 @@ public class UserPage {
 
         vb.setTranslateY(newTranslateY);
     }
+
+   
 }
