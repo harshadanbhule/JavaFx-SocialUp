@@ -30,7 +30,7 @@ public class DataService {
     }
 
         private static void initializeFirebase() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-d2c6730c43.json");
+        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-7b80624d0b.json");
 
         // Configure Firebase options with the credentials
         FirebaseOptions options = new FirebaseOptions.Builder()

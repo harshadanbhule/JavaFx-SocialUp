@@ -27,26 +27,26 @@ import com.example.SecondStage;
 
 public class LoginController {
 
-    private Stage primaryStage; // The primary stage for displaying scenes
-    private static Scene loginScene; // Scene for the login page
-    private Scene userScene; // Scene for the user dashboard
-    private DataService dataService; // Service to interact with Firestore
-    public static String key; // Static key to store the logged-in username
+    private Stage primaryStage; 
+    private static Scene loginScene; 
+    private Scene userScene; 
+    private DataService dataService; 
+    public static String key; 
 
-    // Constructor to initialize the LoginController with the primary stage
+    
     public LoginController(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        dataService = new DataService(); // Initialize DataService instance
-        initScenes(); // Initialize scenes
+        dataService = new DataService(); 
+        initScenes(); 
     }
 
-    // Method to initialize all scenes
+    
     private void initScenes() {
-        initLoginScene(); // Initialize the login scene
+        initLoginScene(); 
     }
 
-    // Method to initialize the login scene
-    private void initLoginScene() {
+    
+    public void initLoginScene() {
         TextField userTextField = new TextField();
         userTextField.setMinWidth(400);
         userTextField.setPromptText("Email");
@@ -81,9 +81,9 @@ public class LoginController {
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                handleLogin(userTextField.getText(), passField.getText()); // Handle login
-                userTextField.clear(); // Clear username field
-                passField.clear(); // Clear password field
+                handleLogin(userTextField.getText(), passField.getText()); 
+                userTextField.clear(); 
+                passField.clear(); 
             }
         });
 
@@ -107,9 +107,9 @@ public class LoginController {
         lButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                showSignupScene(); // Show signup scene
-                userTextField.clear(); // Clear username field
-                passField.clear(); // Clear password field
+                showSignupScene(); 
+                userTextField.clear(); 
+                passField.clear(); 
             }
         });
 
@@ -194,31 +194,31 @@ public class LoginController {
 
     private void openSecondStage() {
         SecondStage secondStage = new SecondStage(primaryStage);
-        secondStage.showSecondStage(); // Method to show signup scene in SecondStage
+        secondStage.showSecondStage(); 
     }
     
-    // Method to get the login scene
+   
     public static Scene getLoginScene() {
         return loginScene;
     }
 
-    // Method to show the login scene
+   
     public void showLoginScene() {
         primaryStage.setScene(loginScene);
         primaryStage.setTitle("Login");
         primaryStage.show();
     }
 
-    // Method to handle login action
+    
     private void handleLogin(String username, String password) {
         try {
-            // Authenticate user
+         
             if (dataService.authenticateUser(username, password)) {
-                // If authentication is successful, show user dashboard
+              
                 key = username;
                 showUserScene();
             } else {
-                // If authentication fails, show error message
+             
                 showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
             }
         } catch (InterruptedException | ExecutionException e) {
@@ -227,7 +227,7 @@ public class LoginController {
         }
     }
 
-    // Method to show user dashboard
+ 
     private void showUserScene() {
         UserPage userPage = new UserPage(primaryStage);
         userScene = userPage.getUserScene();
@@ -236,14 +236,14 @@ public class LoginController {
         primaryStage.show();
     }
 
-    // Method to show signup scene
+
     private void showSignupScene() {
         SecondStage secondStage = new SecondStage(primaryStage);
-        secondStage.showSignup(); // Call method to show signup scene
+        secondStage.showSignup(); 
     }
     
 
-    // Method to show alert dialog
+  
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
