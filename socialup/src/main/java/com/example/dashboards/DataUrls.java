@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class DataUrls {
     public StringBuffer getResponseData() throws IOException {
-        String url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=78b6f6bfd45749d7ab132e12fb413b36";
+        String url = "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=78b6f6bfd45749d7ab132e12fb413b36";
 
         HttpURLConnection httpClient = (HttpURLConnection) new URL(url).openConnection();
         httpClient.setRequestMethod("GET");

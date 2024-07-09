@@ -135,7 +135,7 @@ public class UserPage {
         StackPane.setMargin(button, new Insets(600,1230,0,0));
 
         vb = new VBox(stackPane, imageView1);
-        vb.setStyle("-fx-background-color: DARKGREY");
+        vb.setStyle("-fx-background-color: #FFFFF;");
 
         vb.setOnScroll(event -> handleScroll(event));
         userScene = new Scene(vb, 1920, 1080);
