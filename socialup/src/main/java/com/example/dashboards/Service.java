@@ -1,7 +1,17 @@
 package com.example.dashboards;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import com.example.SecondStage;
 import com.example.controller.LoginController;
+
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -113,17 +123,16 @@ public class Service {
         logoutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
         logoutButton.setOnAction(event->handleLogout());
 
-        HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton, cartButton,profileButton,logoutButton);
+        HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton,profileButton,logoutButton);
         hbox1.setLayoutX(0);
         hbox1.setLayoutY(0);
-        hbox1.setStyle("-fx-background-color: #FFFFFF;");
         HBox.setMargin(text, new Insets(10,0,0,50));
-        HBox.setMargin(homeButton, new Insets(20,0,0,670));
+        HBox.setMargin(homeButton, new Insets(20,0,0,820));
         HBox.setMargin(aboutButton, new Insets(20,0,0,50));
         HBox.setMargin(serviceButton, new Insets(20,0,0,50));
         HBox.setMargin(newsButton, new Insets(20,0,0,50));
         HBox.setMargin(contactButton, new Insets(20,0,0,50));
-        HBox.setMargin(cartButton, new Insets(10,0,0,50));
+       // HBox.setMargin(cartButton, new Insets(10,0,0,50));
         HBox.setMargin(profileButton, new Insets(10,0,0,50));
         HBox.setMargin(logoutButton, new Insets(15,0,0,50));
 
@@ -164,6 +173,7 @@ public class Service {
         rect1.setLayoutY(0);
         rect1.setArcWidth(35); // Set the arc width for rounded corners
         rect1.setArcHeight(35);
+        rect1.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text gdesign = new Text("Graphic Design");
         gdesign.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -197,12 +207,14 @@ public class Service {
             "-fx-background-color: #FFFFFF; -fx-cursor: hand; " +
             "-fx-background-insets: 0, 1, 2, 3; -fx-background-radius: 5, 4, 3, 2;"
         ));
+        graphic_b.setOnAction(event -> openLink("https://rzp.io/l/AjvOSSyUfH"));
 
         Rectangle rect2 = new Rectangle(350, 483, Color.web("#4363D0"));
         rect2.setLayoutX(497); // Position the rectangle
         rect2.setLayoutY(0);
         rect2.setArcWidth(35); // Set the arc width for rounded corners
         rect2.setArcHeight(35);
+        rect2.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text v_editor = new Text("Video Editor");
         v_editor.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -225,6 +237,7 @@ public class Service {
             "-fx-background-insets: 0, 1, 2, 3; -fx-background-radius: 5, 4, 3, 2;"
         );
 
+
         v_editor_b.setOnMouseEntered(event -> {
             v_editor_b.setStyle(
                 "-fx-font-family: 'Poppins'; -fx-font-size: 20px; -fx-font-weight: 100; -fx-text-fill: #FFFFFF; " +
@@ -240,12 +253,14 @@ public class Service {
                 "-fx-background-insets: 0, 1, 2, 3; -fx-background-radius: 5, 4, 3, 2;"
             );
         });
+        v_editor_b.setOnAction(event -> openLink("https://rzp.io/l/1QTQ5Rr"));
 
         Rectangle rect3 = new Rectangle(350, 483, Color.web("#CE5757"));
         rect3.setLayoutX(994); // Position the rectangle
         rect3.setLayoutY(0);
         rect3.setArcWidth(35); // Set the arc width for rounded corners
         rect3.setArcHeight(35);
+        rect3.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text c_writer = new Text("Content Writer");
         c_writer.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -291,6 +306,7 @@ public class Service {
         rect4.setLayoutY(0);
         rect4.setArcWidth(35); // Set the arc width for rounded corners
         rect4.setArcHeight(35);
+        rect4.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text v_grapher = new Text("Videographer");
         v_grapher.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -353,7 +369,7 @@ public class Service {
         s_w_image_v.setLayoutX(610);
         s_w_image_v.setLayoutY(55);
 
-        Image s_s_image = new Image("file:src//main//resources//images//Group (3).png");
+        Image s_s_image = new Image("file:src//main//resources//images/Group (3).png");
         ImageView s_s_image_v = new ImageView(s_s_image);
         s_s_image_v.setLayoutX(1105);
         s_s_image_v.setLayoutY(30);
@@ -369,6 +385,7 @@ public class Service {
         rect5.setLayoutY(0);
         rect5.setArcWidth(35); // Set the arc width for rounded corners
         rect5.setArcHeight(35);
+        rect5.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text pgrapher = new Text("Photographer");
         pgrapher.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -409,6 +426,7 @@ public class Service {
         rect6.setLayoutY(0);
         rect6.setArcWidth(35); // Set the arc width for rounded corners
         rect6.setArcHeight(35);
+        rect6.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text s_writer = new Text("Subtitle Writer");
         s_writer.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -453,6 +471,7 @@ public class Service {
         rect7.setLayoutY(0);
         rect7.setArcWidth(35); // Set the arc width for rounded corners
         rect7.setArcHeight(35);
+        rect7.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text s_special = new Text("SEO Specialist");
         s_special.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -496,6 +515,7 @@ public class Service {
         rect8.setLayoutY(0);
         rect8.setArcWidth(35); // Set the arc width for rounded corners
         rect8.setArcHeight(35);
+        rect8.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 20, 0, 0, 10);");
 
         Text c_manager = new Text("Community Manager");
         c_manager.setStyle("-fx-font-family: 'Poppins'; -fx-font-weight: bold; -fx-font-size: 32px; -fx-fill: #FFFFFF;");
@@ -586,6 +606,7 @@ public class Service {
              "-fx-background-radius:100;-fx-pref-height: 72px;-fx-pref-width: 309px;"
             );
         });
+        purc1.setOnAction(event -> openLink("https://rzp.io/l/q8zxjB5waE"));
 
         Button purc2 = new Button("Purchase");
         purc2.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 24px; -fx-font-weight: BOLD; -fx-text-fill: #092A93; " +
@@ -626,6 +647,7 @@ public class Service {
              "-fx-background-radius:100;-fx-pref-height: 72px;-fx-pref-width: 309px;"
             );
         });
+        purc3.setOnAction(event -> openLink("https://rzp.io/l/tQBkO3kD"));
 
 
 
@@ -696,6 +718,19 @@ public class Service {
         LoginController loginController = new LoginController(stage);
         loginController.showLoginScene();
     }
+
+    private void openLink(String url) {
+    if (Desktop.isDesktopSupported()) {
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            desktop.browse(new URI(url));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    } else {
+        System.err.println("Desktop is not supported. Cannot open link.");
+    }
+}
 
      private void handleScroll(ScrollEvent event) {
         double deltaY = event.getDeltaY();

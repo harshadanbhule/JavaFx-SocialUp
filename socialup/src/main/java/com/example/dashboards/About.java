@@ -109,16 +109,16 @@ public class About {
         logoutButton.setStyle("-fx-background-color: rgba(241, 244, 255, 0); -fx-background-radius: 10;");
         logoutButton.setOnAction(event->handleLogout());
 
-        HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton, cartButton,profileButton,logoutButton);
+        HBox hbox1 = new HBox(text, homeButton, aboutButton, serviceButton, newsButton, contactButton,profileButton,logoutButton);
         hbox1.setLayoutX(0);
         hbox1.setLayoutY(0);
         HBox.setMargin(text, new Insets(10,0,0,50));
-        HBox.setMargin(homeButton, new Insets(20,0,0,670));
+        HBox.setMargin(homeButton, new Insets(20,0,0,820));
         HBox.setMargin(aboutButton, new Insets(20,0,0,50));
         HBox.setMargin(serviceButton, new Insets(20,0,0,50));
         HBox.setMargin(newsButton, new Insets(20,0,0,50));
         HBox.setMargin(contactButton, new Insets(20,0,0,50));
-        HBox.setMargin(cartButton, new Insets(10,0,0,50));
+       // HBox.setMargin(cartButton, new Insets(10,0,0,50));
         HBox.setMargin(profileButton, new Insets(10,0,0,50));
         HBox.setMargin(logoutButton, new Insets(15,0,0,50));
 
