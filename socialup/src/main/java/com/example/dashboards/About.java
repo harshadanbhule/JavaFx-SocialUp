@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -26,6 +27,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -123,8 +125,178 @@ public class About {
         HBox.setMargin(logoutButton, new Insets(15,0,0,50));
 
 
+         Text meet = new Text("Meet Our Team");
+        meet.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 48px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
+        meet.setTranslateX(820);
+        meet.setTranslateY(157);
 
-        vb = new VBox(hbox1);
+        Text txt2 = new Text("Get to Know the Team Driving SocialUp Forward");
+        txt2.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 19px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        txt2.setTranslateX(790);
+        txt2.setTranslateY(240);
+
+        // Create the first person image and name
+        Rectangle person1 = new Rectangle();
+        person1.setWidth(267);
+        person1.setHeight(356);
+        person1.setArcWidth(35);
+        person1.setArcHeight(35);
+
+        Image person1_Image = new Image("/images/Bitmap.png");
+        ImageView person1_Image_v = new ImageView(person1_Image);
+        person1_Image_v.setFitWidth(267);
+        person1_Image_v.setFitHeight(356);
+        person1_Image_v.setClip(person1);
+
+        Text per1_name = new Text("Joe Bridges");
+        per1_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
+        per1_name.setFill(Color.web("#161C2D"));
+        Text per1_post = new Text("Founder");
+        per1_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        per1_post.setFill(Color.web("#161C2D"));
+
+        VBox person1_VBox = new VBox(10); // Vertical box for person1 image and name
+        person1_VBox.setAlignment(Pos.CENTER);
+        person1_VBox.getChildren().addAll(person1_Image_v, per1_name, per1_post);
+
+        // Create the second person image and name
+        Rectangle person2 = new Rectangle();
+        person2.setWidth(267);
+        person2.setHeight(356);
+        person2.setArcWidth(35);
+        person2.setArcHeight(35);
+
+        Image person2_Image = new Image("/images/Bitmap (1).png");
+        ImageView person2_Image_v = new ImageView(person2_Image);
+        person2_Image_v.setFitWidth(267);
+        person2_Image_v.setFitHeight(356);
+        person2_Image_v.setClip(person2);
+
+        Text per2_name = new Text("Person 2");
+        per2_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
+        per2_name.setFill(Color.web("#161C2D"));
+        Text per2_post = new Text("Chief Executive Officer");
+        per2_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        per2_post.setFill(Color.web("#161C2D"));
+
+        VBox person2_VBox = new VBox(10); // Vertical box for person2 image and name
+        person2_VBox.setAlignment(Pos.CENTER);
+        person2_VBox.getChildren().addAll(person2_Image_v, per2_name, per2_post);
+
+        // Create the third person image and name
+        Rectangle person3 = new Rectangle();
+        person3.setWidth(267);
+        person3.setHeight(356);
+        person3.setArcWidth(35);
+        person3.setArcHeight(35);
+
+        Image person3_Image = new Image("/images/Bitmap (2).png");
+        ImageView person3_Image_v = new ImageView(person3_Image);
+        person3_Image_v.setFitWidth(267);
+        person3_Image_v.setFitHeight(356);
+        person3_Image_v.setClip(person3);
+
+        Text per3_name = new Text("Person 3");
+        per3_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
+        Text per3_post = new Text("Chief Technology Officer");
+        per3_name.setFill(Color.web("#161C2D"));
+        per3_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        per3_post.setFill(Color.web("#161C2D"));
+
+        VBox person3_VBox = new VBox(10); // Vertical box for person3 image and name
+        person3_VBox.setAlignment(Pos.CENTER);
+        person3_VBox.getChildren().addAll(person3_Image_v, per3_name, per3_post);
+
+        // Create the fourth person image and name
+        Rectangle person4 = new Rectangle();
+        person4.setWidth(267);
+        person4.setHeight(356);
+        person4.setArcWidth(35);
+        person4.setArcHeight(35);
+
+        Image person4_Image = new Image("/images/Bitmap (3).png");
+        ImageView person4_Image_v = new ImageView(person4_Image);
+        person4_Image_v.setFitWidth(267);
+        person4_Image_v.setFitHeight(356);
+        person4_Image_v.setClip(person4);
+
+        Text per4_name = new Text("Person 4");
+        per4_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
+        per4_name.setFill(Color.web("#161C2D"));
+        Text per4_post = new Text("Lead Programmer");
+        per4_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        per4_post.setFill(Color.web("#161C2D"));
+
+        VBox person4_VBox = new VBox(10); // Vertical box for person4 image and name
+        person4_VBox.setAlignment(Pos.CENTER);
+        person4_VBox.getChildren().addAll(person4_Image_v, per4_name, per4_post);
+
+        // Add all person VBoxes to the HBox
+        HBox us_box = new HBox(30);
+        us_box.setPrefSize(1158, 10);
+        us_box.setMinSize(600, 10);
+        us_box.setMaxSize(1158, 452);
+        us_box.setAlignment(Pos.TOP_LEFT);
+        us_box.getChildren().addAll(person1_VBox, person2_VBox, person3_VBox, person4_VBox);
+
+        Text apply_1 = new Text("Interested to join\nour team?");
+        apply_1.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 24px; -fx-font-weight: BOLD;-fx-text-fill: #161C2D;");
+
+        // Create the apply_now button with styled text
+        Text applyText = new Text("Apply Now");
+        applyText.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD; -fx-fill: #473BF0;");
+
+        Button apply_now = new Button();
+        apply_now.setGraphic(applyText);
+        apply_now.setMaxWidth(130); 
+        apply_now.setStyle(
+            "-fx-background-color: transparent; " +
+            "-fx-font-family: 'Poppins'; -fx-font-size: 24px; -fx-font-weight: BOLD; " +
+            "-fx-text-fill: #473BF0; " +
+            "-fx-cursor: hand; " +
+            "-fx-background-radius: 100; " +
+            "-fx-pref-height: 72px; -fx-pref-width: 309px;"
+        );
+
+        apply_now.setOnMouseEntered(event -> {
+            apply_now.setStyle(
+                "-fx-background-color: transparent;"+"-fx-font-family: 'Poppins'; -fx-font-size: 24px; -fx-font-weight: BOLD; " +
+                "-fx-cursor: hand; " +
+                "-fx-background-radius: 100; " +
+                "-fx-pref-height: 72px; -fx-pref-width: 309px;"
+            );
+        });
+
+        apply_now.setOnMouseExited(event -> {
+            apply_now.setStyle(
+                "-fx-background-color: transparent; " +
+                "-fx-font-family: 'Poppins'; -fx-font-size: 24px; -fx-font-weight: BOLD;" +
+                "-fx-cursor: hand; " +
+                "-fx-background-radius: 100; " +
+                "-fx-pref-height: 72px; -fx-pref-width: 309px;"
+            );
+        });
+        apply_now.setTranslateX(0);
+        apply_now.setTranslateY(50);
+        VBox applyBox = new VBox(2, apply_1, apply_now);
+        applyBox.setAlignment(Pos.CENTER_LEFT);
+        applyBox.setTranslateX(790);
+        applyBox.setTranslateY(45);
+
+        StackPane.setAlignment(meet, Pos.TOP_LEFT);
+        StackPane.setAlignment(txt2, Pos.TOP_LEFT);
+        StackPane.setAlignment(us_box, Pos.TOP_LEFT);
+        StackPane.setAlignment(applyBox, Pos.TOP_LEFT);
+
+        StackPane.setMargin(us_box, new Insets(350, 0, 0, 381)); // Position us_box below txt2
+        StackPane.setMargin(applyBox, new Insets(400, 0, 0, 800)); // Adjust position of applyBox as needed
+
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(meet, txt2, us_box, applyBox);
+
+
+
+        vb = new VBox(hbox1,stackPane);
         vb.setStyle("-fx-fill: #E7E9ED;");
 
         vb.setOnScroll(event -> handleScroll(event));

@@ -33,13 +33,13 @@ public class MainStage {
         text2.setStyle("-fx-font-family: 'Manrope ExtraBold'; -fx-font-size: 90px; -fx-fill: #FFFFFF;");
         addTypingTransition(text2, "next level");
 
-        Text text3 = new Text();
+        Text text3 = new Text("At SocialUp, we provide a comprehensive suite of tools designed to enhance your social media presence,");
         text3.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: medium; -fx-font-size: 16px; -fx-fill: #FFFFFF;");
-        addTypingTransition(text3, "At SocialUp, we provide a comprehensive suite of tools designed to enhance your social media presence,");
+      //  addTypingTransition(text3, "At SocialUp, we provide a comprehensive suite of tools designed to enhance your social media presence,");
 
-        Text text4 = new Text();
+        Text text4 = new Text("engage your audience, and drive meaningful results.");
         text4.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: medium; -fx-font-size: 15px; -fx-fill: #FFFFFF;");
-        addTypingTransition(text4, "engage your audience, and drive meaningful results.");
+        //addTypingTransition(text4, "engage your audience, and drive meaningful results.");
 
         Image image1 = new Image(getClass().getResourceAsStream("/mainstage/Frame 320.png"));
         ImageView imageView1 = new ImageView(image1);
