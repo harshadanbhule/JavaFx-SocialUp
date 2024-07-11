@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 
+@SuppressWarnings("unused")
 public class SecondStage {
     private Stage stage;
     private LoginController loginController;

@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import com.example.controller.LoginController;
 
+@SuppressWarnings("unused")
 public class UserPage {
     private VBox vb;
     private Stage primaryStage; // The primary stage for displaying scenes

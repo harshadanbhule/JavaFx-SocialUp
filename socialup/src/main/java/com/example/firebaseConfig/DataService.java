@@ -37,7 +37,7 @@ public class DataService {
     }
 
     private static void initializeFirebase() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-7b80624d0b.json");
+        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-8cd249e22d.json");
 
         // Configure Firebase options with the credentials
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -115,7 +115,7 @@ public class DataService {
 
     // Example method to upload a file to Firebase Storage
     public void uploadFile(String filePath, String fileName) throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-7b80624d0b.json");
+        FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-8cd249e22d.json");
 
         // Configure Firebase options with the credentials
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -127,7 +127,7 @@ public class DataService {
 
         // Upload file to Firebase Storage
         String bucketName = "gs://javafx-firebasestore-c3012.appspot.com";
-        Storage storage = StorageOptions.newBuilder().setCredentials(GoogleCredentials.fromStream(new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-7b80624d0b.json"))).build().getService();
+        Storage storage = StorageOptions.newBuilder().setCredentials(GoogleCredentials.fromStream(new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-8cd249e22d.json"))).build().getService();
         BlobId blobId = BlobId.of(bucketName, fileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType("image/png").build();
         Path path = Paths.get(filePath);

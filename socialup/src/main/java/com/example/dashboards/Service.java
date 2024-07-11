@@ -45,6 +45,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class Service {
 
     private Stage stage;

@@ -1,0 +1,17 @@
+com\example\SecondStage.class
+com\example\Main.class
+com\example\SplashScreen.class
+com\example\controller\SignUpController.class
+com\example\dashboards\Cart.class
+com\example\dashboards\Service.class
+com\example\firebaseConfig\DataService.class
+com\example\dashboards\UserPage.class
+com\example\dashboards\Contact.class
+com\example\dashboards\Profile.class
+com\example\dashboards\DataUrls.class
+com\example\MainStage.class
+com\example\controller\LoginController.class
+com\example\dashboards\News.class
+com\example\controller\LoginController$1.class
+com\example\controller\LoginController$2.class
+com\example\dashboards\About.class
