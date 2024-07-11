@@ -330,7 +330,7 @@ public class About {
     }
 
     private void openProfile() {
-        Profile profile = new Profile(stage);
+        Profile profile = new Profile(stage,LoginController.key);
         stage.setScene(profile.createScene());
         stage.setTitle("Profile");
     }

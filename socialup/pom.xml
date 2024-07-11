@@ -46,6 +46,17 @@
             <artifactId>firebase-admin</artifactId>
             <version>8.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>8.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-storage</artifactId>
+            <version>1.113.15</version>
+        </dependency>
+
 
         <!-- Google Auth -->
         <dependency>
@@ -81,5 +92,6 @@
         </dependency>
         
     </dependencies>
+
 
 </project>

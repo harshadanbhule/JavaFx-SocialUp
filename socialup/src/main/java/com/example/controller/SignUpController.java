@@ -24,6 +24,7 @@ import java.util.Map;
 
 import com.example.firebaseConfig.DataService;
 
+@SuppressWarnings("unused")
 public class SignUpController {
 
     private LoginController loginController; // Reference to LoginController for navigation
@@ -48,6 +49,58 @@ public class SignUpController {
             userTextField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
         });
 
+        TextField usernameField = new TextField();
+        usernameField.setMinWidth(400);
+        usernameField.setPromptText("Username");
+        usernameField.setPrefHeight(64);
+        usernameField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+        usernameField.setOnMouseClicked(event -> {
+            usernameField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        usernameField.setOnMouseExited(event -> {
+            usernameField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
+
+        TextField mobileField = new TextField();
+        mobileField.setMinWidth(400);
+        mobileField.setPromptText("Mobile Number");
+        mobileField.setPrefHeight(64);
+        mobileField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+        mobileField.setOnMouseClicked(event -> {
+            mobileField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        mobileField.setOnMouseExited(event -> {
+            mobileField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
+
+        TextField professionField = new TextField();
+        professionField.setMinWidth(400);
+        professionField.setPromptText("Profession");
+        professionField.setPrefHeight(64);
+        professionField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+        professionField.setOnMouseClicked(event -> {
+            professionField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        professionField.setOnMouseExited(event -> {
+            professionField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
+
+        TextField socialmediaField = new TextField();
+        socialmediaField.setMinWidth(400);
+        socialmediaField.setPromptText("Social Media Link");
+        socialmediaField.setPrefHeight(64);
+        socialmediaField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+        socialmediaField.setOnMouseClicked(event -> {
+            socialmediaField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
+        });
+        socialmediaField.setOnMouseExited(event -> {
+            socialmediaField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
+
+        });
+
         PasswordField passField = new PasswordField();
         passField.setMaxWidth(400);
         passField.setPromptText("Password");
@@ -60,24 +113,12 @@ public class SignUpController {
             passField.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
         });
 
-        PasswordField passwordFieldc = new PasswordField();
-        passwordFieldc.setMaxWidth(400);
-        passwordFieldc.setPromptText("Confirm Password");
-        passwordFieldc.setPrefHeight(64);
-        passwordFieldc.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
-        passwordFieldc.setOnMouseClicked(event -> {
-            passwordFieldc.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-border-color: #092A93; -fx-border-width: 2; -fx-border-radius: 10;");
-        });
-        passwordFieldc.setOnMouseExited(event -> {
-            passwordFieldc.setStyle("-fx-background-radius: 10; -fx-background-color: #F1F4FF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
-        });
-
         Button loginButton = new Button("Sign up");
         loginButton.setFont(Font.font("Poppins", FontWeight.BOLD, 20));
         loginButton.setTextFill(Color.WHITE);
         loginButton.setStyle("-fx-background-color: #092A93; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 3);");
         loginButton.setPrefSize(320, 60);
-        loginButton.setOnAction(event -> handleSignup(primaryStage, userTextField.getText(), passField.getText()));
+        loginButton.setOnAction(event -> handleSignup(primaryStage, userTextField.getText(),usernameField.getText(),mobileField.getText(),professionField.getText(),socialmediaField.getText(), passField.getText()));
 
         Label loginLabel = new Label("Create Account");
         loginLabel.setFont(Font.font("Poppins", FontWeight.BOLD, 30));
@@ -152,8 +193,11 @@ public class SignUpController {
             loginLabel,
             welcomeLabel,
             userTextField,
+            usernameField,
+            mobileField,
+                professionField,
+                socialmediaField,
             passField,
-            passwordFieldc,
             loginButton,
             lButton,
             continueWithLabel,
@@ -162,8 +206,11 @@ public class SignUpController {
         mainLayout.setAlignment(Pos.CENTER);
         VBox.setMargin(welcomeLabel, new Insets(30, 0, 0, 0));
         VBox.setMargin(userTextField, new Insets(30, 0, 0, 0));
+        VBox.setMargin(usernameField, new Insets(15, 0, 0, 0));
+        VBox.setMargin(professionField, new Insets(15, 0, 0, 0));
+        VBox.setMargin(socialmediaField, new Insets(15, 0, 0, 0));
         VBox.setMargin(passField, new Insets(15, 0, 0, 0));
-        VBox.setMargin(passwordFieldc, new Insets(15, 0, 0, 0));
+        VBox.setMargin(mobileField, new Insets(15, 0, 0, 0));
         VBox.setMargin(continueWithLabel, new Insets(40, 0, 0, 0));
 
         HBox hbox = new HBox(stackPane,mainLayout);
@@ -175,7 +222,7 @@ public class SignUpController {
     }
 
     // Method to handle signup action
-    private void handleSignup(Stage primaryStage, String username, String password) {
+    private void handleSignup(Stage primaryStage, String username, String username2,String mobilenum,String profession,String socialmedia,String password) {
         DataService dataService; // Local instance of DataService
         try {
             dataService = new DataService(); // Initialize DataService instance
@@ -183,6 +230,10 @@ public class SignUpController {
             Map<String, Object> data = new HashMap<>();
             data.put("password", password);
             data.put("username", username);
+            data.put("username2", username2);
+            data.put("mobilenum", mobilenum);
+            data.put("profession", profession);
+            data.put("socialmedia", socialmedia);
             // Add user data to Firestore
             dataService.addData("users", username, data);
             System.out.println("User registered successfully");

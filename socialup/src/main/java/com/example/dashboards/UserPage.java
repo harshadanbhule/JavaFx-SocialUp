@@ -191,7 +191,7 @@ public class UserPage {
     }
 
     private void openProfile() {
-        Profile nextPage = new Profile(primaryStage);
+        Profile nextPage = new Profile(primaryStage,LoginController.key);
         Scene nextScene = nextPage.createScene();
         primaryStage.setScene(nextScene);
         primaryStage.setTitle("Profile");
