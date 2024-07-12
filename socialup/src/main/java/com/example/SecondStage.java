@@ -3,6 +3,7 @@ package com.example;
 import com.example.controller.LoginController;
 import com.example.controller.SignUpController;
 
+import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 @SuppressWarnings("unused")
 public class SecondStage {
@@ -84,7 +86,31 @@ public class SecondStage {
         VBox.setMargin(hBox, new Insets(40, 0, 0, 0));
         VBox.setMargin(hBox1, new Insets(90, 0, 0, 0));
 
-        root.getChildren().add(vBox);
+        Image iamge9 = new Image(getClass().getResourceAsStream("/abstract.png"));
+        ImageView imageView9 = new ImageView(iamge9);
+        StackPane.setAlignment(imageView9, Pos.BOTTOM_RIGHT);
+
+        Image iamge10 = new Image(getClass().getResourceAsStream("/abstract3.png"));
+        ImageView imageView10 = new ImageView(iamge10);
+        StackPane.setAlignment(imageView10, Pos.TOP_LEFT);
+
+        root.getChildren().addAll(imageView10, imageView9, vBox);
+
+        // Initial positions (outside of the scene)
+        imageView9.setTranslateX(1920);
+        imageView10.setTranslateX(-1920);
+
+        // Create TranslateTransition for imageView9
+        TranslateTransition transition9 = new TranslateTransition(Duration.seconds(2), imageView9);
+        transition9.setToX(0);
+
+        // Create TranslateTransition for imageView10
+        TranslateTransition transition10 = new TranslateTransition(Duration.seconds(2), imageView10);
+        transition10.setToX(0);
+
+        // Start the transitions
+        transition9.play();
+        transition10.play();
 
         Scene scene = new Scene(root, 1920, 1080);
         stage.setScene(scene);

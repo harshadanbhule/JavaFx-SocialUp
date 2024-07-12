@@ -1,11 +1,15 @@
 package com.example.dashboards;
 
+import java.net.URI;
+
 import com.example.SecondStage;
 import com.example.controller.LoginController;
 
 import javafx.geometry.Insets;
 import javafx.scene.text.Text;
 import javafx.geometry.Pos;
+import java.awt.Desktop;
+import java.net.URI;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -270,6 +274,17 @@ public class Contact {
         our_insta.setTranslateX(1600);
         our_insta.setTranslateY(455);
         our_insta.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 19px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
+        our_insta.setOnAction(event -> {
+            String url = our_insta.getText();
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI(url));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println("Error opening hyperlink: " + e.getMessage());
+                }
+            }
+        });
 
         // Set the alignment and translation for the text
         StackPane.setAlignment(nameText, Pos.TOP_LEFT); // Align to the top left
