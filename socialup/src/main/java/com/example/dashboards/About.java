@@ -143,16 +143,16 @@ public class About {
         person1.setArcWidth(35);
         person1.setArcHeight(35);
 
-        Image person1_Image = new Image("/images/Bitmap.png");
+        Image person1_Image = new Image("/profile/harshad.jpg");
         ImageView person1_Image_v = new ImageView(person1_Image);
         person1_Image_v.setFitWidth(267);
         person1_Image_v.setFitHeight(356);
         person1_Image_v.setClip(person1);
 
-        Text per1_name = new Text("Joe Bridges");
+        Text per1_name = new Text("Harshad Anbhule");
         per1_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
         per1_name.setFill(Color.web("#161C2D"));
-        Text per1_post = new Text("Founder");
+        Text per1_post = new Text("Chief Executive Officer");
         per1_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
         per1_post.setFill(Color.web("#161C2D"));
 
@@ -167,16 +167,16 @@ public class About {
         person2.setArcWidth(35);
         person2.setArcHeight(35);
 
-        Image person2_Image = new Image("/images/Bitmap (1).png");
+        Image person2_Image = new Image("/profile/shahuraj.jpg");
         ImageView person2_Image_v = new ImageView(person2_Image);
         person2_Image_v.setFitWidth(267);
         person2_Image_v.setFitHeight(356);
         person2_Image_v.setClip(person2);
 
-        Text per2_name = new Text("Person 2");
+        Text per2_name = new Text("Shahuraj Bhoite");
         per2_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
         per2_name.setFill(Color.web("#161C2D"));
-        Text per2_post = new Text("Chief Executive Officer");
+        Text per2_post = new Text("Chief Operating Officer");
         per2_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
         per2_post.setFill(Color.web("#161C2D"));
 
@@ -191,13 +191,13 @@ public class About {
         person3.setArcWidth(35);
         person3.setArcHeight(35);
 
-        Image person3_Image = new Image("/images/Bitmap (2).png");
+        Image person3_Image = new Image("/profile/anuj.jpg");
         ImageView person3_Image_v = new ImageView(person3_Image);
         person3_Image_v.setFitWidth(267);
         person3_Image_v.setFitHeight(356);
         person3_Image_v.setClip(person3);
 
-        Text per3_name = new Text("Person 3");
+        Text per3_name = new Text("Anuj Wawre");
         per3_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
         Text per3_post = new Text("Chief Technology Officer");
         per3_name.setFill(Color.web("#161C2D"));
@@ -215,16 +215,16 @@ public class About {
         person4.setArcWidth(35);
         person4.setArcHeight(35);
 
-        Image person4_Image = new Image("/images/Bitmap (3).png");
+        Image person4_Image = new Image("/profile/shri.jpg");
         ImageView person4_Image_v = new ImageView(person4_Image);
         person4_Image_v.setFitWidth(267);
         person4_Image_v.setFitHeight(356);
         person4_Image_v.setClip(person4);
 
-        Text per4_name = new Text("Person 4");
+        Text per4_name = new Text("Shrivesh Nagrale");
         per4_name.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 21px; -fx-font-weight: BOLD;-fx-text-fill: BLACK;");
         per4_name.setFill(Color.web("#161C2D"));
-        Text per4_post = new Text("Lead Programmer");
+        Text per4_post = new Text("chief financial officer");
         per4_post.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 17px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
         per4_post.setFill(Color.web("#161C2D"));
 

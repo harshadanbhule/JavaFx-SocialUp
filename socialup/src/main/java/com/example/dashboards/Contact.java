@@ -270,7 +270,7 @@ public class Contact {
         our_location.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 19px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
 
 
-        Hyperlink our_insta = new Hyperlink("https://www.instagram.com/socialup");
+        Hyperlink our_insta = new Hyperlink("https://www.instagram.com/socialup80");
         our_insta.setTranslateX(1600);
         our_insta.setTranslateY(455);
         our_insta.setStyle("-fx-font-family: 'Poppins'; -fx-font-size: 19px; -fx-font-weight: REGULAR;-fx-text-fill: #161C2D;");
