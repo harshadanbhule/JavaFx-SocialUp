@@ -40,6 +40,7 @@ public class DataService {
         FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-8cd249e22d.json");
 
         // Configure Firebase options with the credentials
+        @SuppressWarnings("deprecation")
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .build();
@@ -118,6 +119,7 @@ public class DataService {
         FileInputStream serviceAccount = new FileInputStream("src\\main\\resources\\javafx-firebasestore-c3012-firebase-adminsdk-iu034-8cd249e22d.json");
 
         // Configure Firebase options with the credentials
+        @SuppressWarnings("deprecation")
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .build();

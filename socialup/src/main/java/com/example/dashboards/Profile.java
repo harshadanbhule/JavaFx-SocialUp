@@ -17,7 +17,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -26,7 +25,6 @@ import javafx.scene.control.Label;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.URI;
 
 public class Profile {
 
@@ -86,17 +84,13 @@ public class Profile {
 
         Text emailText = new Text();
         emailText.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: BOLD;-fx-font-size: 40px; -fx-fill: #0002AE;");
-        Label emailLabel = new Label();
         Text phoneText = new Text();
         phoneText.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: semibold;-fx-font-size: 24px; -fx-fill: #000000;");
         phoneText.setTranslateX(0);
         phoneText.setTranslateY(90);
-        Label phoneLabel = new Label();
         Text professionText = new Text();
         professionText.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: LIGHT;-fx-font-size: 20px; -fx-fill: #000000;");
-        Label professionLabel = new Label("Profession:");
         Hyperlink socialMediaText = new Hyperlink();
-        Label socialMediaLabel = new Label("Social Media:");
         socialMediaText.setStyle("-fx-font-family: 'Poppins';-fx-font-weight: semibold;-fx-font-size: 24px; -fx-fill: #000000;");
         socialMediaText.setTranslateX(50);
         socialMediaText.setTranslateY(115);

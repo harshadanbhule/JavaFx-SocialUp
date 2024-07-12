@@ -1,6 +1,5 @@
 package com.example.dashboards;
 
-import com.example.SecondStage;
 import com.example.controller.LoginController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
